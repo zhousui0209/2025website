@@ -8,6 +8,13 @@ The font size here is set to 62.5% so that
 1em = 10px. This makes adjusting our typography
 a little easier
 */
+.iansui-regular {
+  font-family: "Iansui", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 body {
 	margin: 0 auto;
 	width: 800px;
@@ -19,11 +26,13 @@ body {
 }
 
 h1, h2, p, ul, li {
+	font-family: "Iansui", cursive;
 	margin: 0;
 	padding: 0;
 }
 
 p {
+	font-family: "Iansui", cursive;
 	font-size: 1.4em;
 	line-height: 1.4em;
 }
