@@ -9,84 +9,112 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-   <header class="container "> 
-    <div class="row">
-        <h1 class="col-6"><img alt="Red Lantern logo" src="images/rl_logo.png" /></h1>
-     <ul id="nav">
-        <li class="active" title="Red Lantern home"><a href="index.html">Home</a></li>
-        <li title="Design services"><a href="services.html">Services</a></li>
-        <li title="Our work"><a href="portfolio.html">Portfolio</a></li>
-        <li title="Contact Red Lantern"><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-   </header>   
 
-   <!-- 轮播 -->
-<div id="demo" class="carousel slide" data-bs-ride="carousel">
-
-  <!-- 指标/点 -->
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-  </div>
-  
-  <!-- 幻灯片/轮播 -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="images/20251006.png" alt="Shanghai" class="d-block" style="width:100%">
-    </div>
-    <div class="carousel-item">
-      <img src="images/202510062.png" alt="Beijing" class="d-block" style="width:100%">
-    </div>
-    <div class="carousel-item">
-      <img src="images/202510063.png" alt="Wuhan" class="d-block" style="width:100%">
+  <div class="container my-4">
+    <div class="row g-4">
+    <body class="text-light">
+  <header class="hero-section position-relative text-warning w-100">
+  <div class="container-fluid position-relative z-1 py-8 px-8">
+    <div class="d-flex justify-content-between align-items-center">
+     <h1 class="display-4">SOUNDPHOENIX</h1>
+      <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#loginModal">
+        Login
+      </button>
     </div>
   </div>
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-end">
+      <div class="modal-content bg-dark text-light">
+  </div>
+  <div class="modal-header">
+ <h5 class="modal-title">Login</h5>
+<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+<form>
+ <div class="mb-3">
+ <label class="form-label">Username</label>
+<input type="text" class="form-control">
+ </div>
+
+<div class="mb-3">
+<label class="form-label">Password</label>
+  <input type="password" class="form-control">
+ </div>
+<button type="submit" class="btn btn-warning w-100">Login</button>
+ </form>
   
-  <!-- 左右控件/图标 -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
-<div class="container-fluid mt-3">
-  <p class="text-info" >沒有圖可以放，先隨便放三張草稿作為幻燈片測試圖。</p>
-</div>
-
-   <article id="mainContent" class="container border border-3 border-info rounded-3">
-      <section id="titleBar">
-        <img alt="tokyo buildings" src="images/tokyo.jpg" class="img-fluid" />
-        <h1 class="col-12">Red Lantern builds unique interfaces </h1>
-
-        </section>
-<div class="row">
-<section id="sidebar" class="col-12 col-sm-6">
-<h2>Our Work</h2>
-<div class="row">
-    <img src="images/markinjapan.jpg" alt="comp0" class="col-6">
-    <img src="images/a2g.jpg" alt="comp1" class="col-6">
-    <img src="images/foobar.jpg" alt="comp2" class="col-6">
-    <img src="images/rpm.jpg" alt="comp3" class="col-6">
-</div>
-</section>
-<section id="content" class="col-12 col-sm-6">
-        <h2>Welcome to the New Red Lantern Design</h2>
-        <p>Red Lantern is a small web design and consulting firm specializing in standards-based design. Our goal is to build simple, beautiful webpages that make your information easy to find. </p>
-        <p>If you or your company is interested in working with us, please check out our portfolio and contact us with your project details. We look forward to hearing from you and helping make the web a little simpler and easier to find.</p>
-        <ul id="link-list">
-          <li><a title="View our portfolio" href="#">View our full portfolio</a></li>
-          <li><a title="Contact Red Lantern" href="#">Contact Red Lantern</a></li>
-        </ul>
-      </section>
+</header>
+  
+      <div class="col-md-4">
+       <img src="images/10221.png" alt="Logo" class="img-fluid me-2" style="height:450px; width: auto;">
       </div>
-     <footer id="footer" class="container">
-      <p>個人網站測試 10/08</p>
-    </footer>
-   </article>
 
+ 
+      <div class="col-md-3">
+        <div class="bg-dark p-4 rounded">
+          <h3>我不知道</h3>
+          <p>這個</p>
+          <p>地方</p>
+          <p>要寫什麼。</p>
+        </div>
+      </div>
+
+  
+      <div class="col-md-5">
+        <div class="bg-dark p-3 rounded d-flex">
+          <img src="images/avatar.png" alt="Logo" class="me-2" style="height: 120px; width: auto;" >
+        </div>
+      </div>
+   
+  <div class="col-md-4">
+       <div class="bg-dark p-3 rounded d-flex">
+         <img src="images/10222.png" alt="Logo" class=" me-2" style="height: 120px; width: auto;" >
+          <img src="images/10224.png" alt="Logo" class=" me-2" style="height: 120px; width: auto;" >
+           <img src="images/10223.png" alt="Logo" class=" me-2" style="height: 120px; width: auto;" >
+       </div>
+       </div>
+     <div class="col-md-4">
+       <div class="bg-dark p-3 rounded">
+         <p>這裡</p>
+          <p>是</p>
+        <p>放置</p>
+        <p>文字</p>
+        <p>的區域</p>
+        <p>。</p>
+        
+        </div>
+      </div>
+       <div class="col-md-4">
+       <div class="bg-dark p-3 rounded">
+         <p>這裡</p>
+          <p>是</p>
+        <p>放置</p>
+        <p>文字</p>
+        <p>的區域</p>
+        <p>。</p>
+       </div>
+      </div>
+
+      <div class="col-md-2">
+       <div class="bg-dark p-3 rounded d-flex">
+      1
+       </div>
+       </div>
+     <div class="col-md-8">
+       <div class="bg-dark p-3 rounded">
+        <p>我努力過了。</p>
+        
+        </div>
+      </div>
+       <div class="col-md-2">
+       <div class="bg-dark p-3 rounded">
+        3
+       </div>
+      </div>
+
+  <footer class=" text-center py-3">
+    <p class="text-warning mb-0">&copy; 2025 SoundPhoenixHW</p>
+  </footer>
 </body>
 </html>

@@ -16,13 +16,13 @@ a little easier
 
 
 body {
-	margin: 0 auto;
-	width: 800px;
+	margin: 0 ;
+	width: 100%;
 	padding: 0;
-	background: #6e0427 url('../images/body_bg.gif') repeat-x top;
+	background: #151515 url('../images/body_bg.gif') repeat-x top;
 	font-family: Helvetica, sans-serif;
 	font-size: 62.5%;
-	color: #333;
+	color:#151515;
 }
 
 h1, h2, p, ul, li {
@@ -42,7 +42,7 @@ ul {
 }
 
 a:link {
-	color: #333;
+	color: #151515;
 	background: #eee;
 }
 a:visited {
@@ -165,5 +165,5 @@ the layout
 	padding: 10px;
 	border-top: 2px solid #ddd;
 	text-align: center;
-	color: #777;
+	color: #151515;
 }
