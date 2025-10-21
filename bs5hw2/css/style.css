@@ -46,7 +46,7 @@ a:link {
 	background: #eee;
 }
 a:visited {
-	color: #ff0000;
+	color: #151515;
 	background: #eee;
 }
 
@@ -98,7 +98,7 @@ the layout
 	padding: 10px;
 	width: 800px;
 	background: #fff;
-	border: 10px solid #5c0505;
+	border: 10px solid #151515;
 }
 
 #header img {
