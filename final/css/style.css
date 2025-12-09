@@ -1,0 +1,267 @@
+/* --------------------------------------------------
+   Base Style
+-------------------------------------------------- */
+body {
+    font-family: 'Iansui', sans-serif;
+    background: #ffffff;
+    color: #494848;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* 色系設定 */
+:root {
+    --primary: #fff0a1;
+    --dark: #494848;
+    --white: #ffffff;
+}
+
+/* --------------------------------------------------
+   Header / 導覽列
+-------------------------------------------------- */
+.site-header {
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--dark);
+    text-decoration: none;
+}
+
+.logo .highlight {
+    color: var(--primary);
+}
+
+.nav-item-link {
+    text-decoration: none;
+    color: var(--dark);
+    padding: 0.5rem 0.75rem;
+    transition: color 0.3s;
+    font-weight: 600;
+}
+
+.nav-item-link:hover {
+    color: var(--primary);
+}
+
+.mobile-toggle {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--dark);
+}
+
+/* --------------------------------------------------
+   Hero Section / 主視覺輪播
+-------------------------------------------------- */
+.hero-section {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+}
+
+/* 關鍵：強制顯示 / 隱藏 slides */
+.hero-slide {
+    display: none !important;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.hero-slide.active {
+    display: flex !important;
+}
+
+.hero-image-wrap {
+    flex: 1;
+    height: 100%;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero-text {
+    font-size: 1.2rem;
+}
+
+/* Controls */
+.hero-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.hero-control.prev { left: 20px; }
+.hero-control.next { right: 20px; }
+
+.hero-control i {
+    color: var(--dark);
+}
+
+.hero-control:hover {
+    background: var(--primary);
+}
+
+/* Indicators */
+.hero-indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.indicator {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background: #ffd700;
+}
+
+/* --------------------------------------------------
+   Featured Section / 精選作品
+-------------------------------------------------- */
+.section-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: bold;
+}
+
+.section-subtitle {
+    color: rgba(73, 72, 72, 0.7);
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Cards */
+.work-card {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.work-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.work-image-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.work-image {
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.work-card:hover .work-image {
+    transform: scale(1.05);
+}
+
+.work-info {
+    padding: 1.5rem;
+}
+
+.work-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.work-tag {
+    color: rgba(73, 72, 72, 0.7);
+    margin-bottom: 1rem;
+}
+
+/* --------------------------------------------------
+   Footer
+-------------------------------------------------- */
+.site-footer {
+    background: var(--dark);
+    color: white;
+    padding: 3rem 0;
+}
+
+.footer-logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.footer-logo .highlight {
+    color: var(--primary);
+}
+
+.footer-subtext {
+    color: rgba(255,255,255,0.7);
+}
+
+.social-group {
+    display: flex;
+    gap: 15px;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--dark);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    background: var(--primary);
+    color: var(--dark);
+}
+
+.footer-copy {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+}
+
