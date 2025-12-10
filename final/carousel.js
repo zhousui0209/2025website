@@ -33,10 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 自動輪播
-    setInterval(() => {
-        index = (index + 1) % slides.length;
-        updateSlide(index);
-    }, 5000);
+   
 
 });
