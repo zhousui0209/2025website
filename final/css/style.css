@@ -216,6 +216,19 @@ img {
     margin-bottom: 1rem;
 }
 
+#leftCarousel .carousel-inner img {
+  width: 100%;
+  height: 450px;       /* 電腦顯示高度，可以自行調整 */
+  object-fit: contain; /* 讓圖片完整顯示 */
+  background-color: white; /* 可選：避免留白過明顯 */
+}
+
+/* 手機版自動縮小高度 */
+@media (max-width: 768px) {
+  #leftCarousel .carousel-inner img {
+    height: 300px;
+  }
+}
 /* --------------------------------------------------
    Footer
 -------------------------------------------------- */
@@ -266,17 +279,5 @@ img {
 }
 
 
-#leftCarousel .carousel-inner img {
-  width: 100%;
-  height: 450px;       /* 電腦顯示高度，可以自行調整 */
-  object-fit: contain; /* 讓圖片完整顯示 */
-  background-color: #000; /* 可選：避免留白過明顯 */
-}
 
-/* 手機版自動縮小高度 */
-@media (max-width: 768px) {
-  #leftCarousel .carousel-inner img {
-    height: 300px;
-  }
-}
 
