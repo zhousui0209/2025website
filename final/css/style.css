@@ -296,3 +296,15 @@ img {
 .layer-bottom { z-index: 1; }
 .layer-middle { z-index: 2; }
 .layer-top    { z-index: 3; }
+/* 手機版修正（md 以下） */
+@media (max-width: 768px) {
+
+  .image-stack {
+    width: 240px;
+    height: 240px;
+  }
+
+  .layer {
+    width: 210px;
+  }
+}
