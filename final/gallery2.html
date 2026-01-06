@@ -13,6 +13,8 @@
 
     <!-- Custom Pure CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -53,8 +55,13 @@
 
     <div class="text-center mb-5">
         <h2 class="section-title">同人作品</h2>
-        <p class="section-subtitle">( 滾動視差我想放這裡，但還沒做。 )</p>
-        <p class="section-subtitle">( 這頁還沒做完。 )</p>
+        <div class="fanart-animation-wrapper mt-4">
+    <div class="image-stack">
+        <img src="images/layer1.png" class="layer layer-bottom" >
+        <img src="images/layer2.png" class="layer layer-middle" >
+        <img src="images/layer3.png" class="layer layer-top box2" >
+    </div>
+</div>
     </div>
 </section>
 <div class="container">
@@ -143,6 +150,43 @@
 <script src="carousel.js"></script>
 
 
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* 最上層左右彈跳 */
+  gsap.timeline({
+    repeat: -1,
+    yoyo: true
+  }).to(".box2", {
+    duration: 2,
+    x: -8,
+    ease: "elastic.out(0.9, 0.4)"
+  });
+
+  /* 滾動時整組縮小 */
+  gsap.to(".image-stack", {
+    scale: 0.7,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".fanart-animation-wrapper",
+      start: "top center",
+      end: "bottom top",
+      scrub: true
+    }
+  });
+</script>
+
+<script>
+  /* 中層：往右的小幅移動（層次感） */
+  gsap.timeline({
+    repeat: -1,
+    yoyo: true
+  }).to(".layer-middle", {
+    duration: 2.4,
+    x: 10,
+    ease: "power1.inOut"
+  });
+</script>
 
 </body>
 </html>

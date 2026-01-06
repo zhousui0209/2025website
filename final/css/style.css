@@ -257,4 +257,30 @@ img {
 
 
 
+/* 同人作品標題下動畫區塊 */
+.fanart-animation-wrapper {
+  display: flex;
+  justify-content: center;
+}
 
+/* 疊圖 */
+.image-stack {
+  position: relative;
+  width: 600px;
+  height: 600px;
+}
+
+/* 共用圖層設定 */
+.layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: auto;
+}
+
+/* 層級 */
+.layer-bottom { z-index: 1; }
+.layer-middle { z-index: 2; }
+.layer-top    { z-index: 3; }
