@@ -157,15 +157,16 @@
   gsap.timeline({
     repeat: -1,
     yoyo: true
-  }).to(".box2", {
+  })
+  .to(".box2", {
     duration: 2,
     x: -8,
-    ease: "elastic.out(0.9, 0.4)"
+    ease: "elastic.out(0.9, 0.2)"
   });
 
   /* 滾動時整組縮小 */
   gsap.to(".image-stack", {
-    scale: 0.7,
+    scale: 0.5,
     ease: "none",
     scrollTrigger: {
       trigger: ".fanart-animation-wrapper",
@@ -177,13 +178,13 @@
 </script>
 
 <script>
-  /* 中層：往右的小幅移動（層次感） */
+  /* 中層：往右的小幅移動 */
   gsap.timeline({
     repeat: -1,
     yoyo: true
   }).to(".layer-middle", {
-    duration: 2.4,
-    x: 10,
+    duration: 3,
+    x: 15,
     ease: "power1.inOut"
   });
 </script>
