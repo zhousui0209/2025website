@@ -179,11 +179,16 @@
     </div>
 
     <div class="mb-4">
-        <form id="messageForm">
+        <form id="messageForm" class="text-center">
             <div class="mb-3">
-                <textarea class="form-control" id="messageInput" placeholder="輸入你的留言..." rows="3" required></textarea>
+                <textarea
+                    class="form-control"
+                    id="messageInput"
+                    placeholder="輸入你的留言..."
+                    rows="3"
+                    required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">送出留言</button>
+            <button type="submit" class="btn-send">送出留言</button>
         </form>
     </div>
 
@@ -196,61 +201,65 @@ const messageInput = document.getElementById("messageInput");
 const messageList = document.getElementById("messageList");
 
 // 送出留言
-messageForm.addEventListener("submit", e => {
+messageForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const content = messageInput.value.trim();
     if (!content) return;
 
-    fetch("http://localhost:3000/messages", {
+    await fetch("http://localhost:3000/messages", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content })
-    })
-    .then(res => res.json())
-    .then(() => {
-        messageInput.value = "";
-        loadMessages();
     });
+
+    messageInput.value = "";
+    loadMessages();
 });
 
 // 載入留言
-function loadMessages() {
-    fetch("http://localhost:3000/messages")
-        .then(res => res.json())
-        .then(messages => {
-            messageList.innerHTML = "";
-            messages.forEach(msg => {
-                const div = document.createElement("div");
-                div.className = "list-group-item d-flex justify-content-between align-items-center";
-                div.textContent = msg.content;
+async function loadMessages() {
+    const res = await fetch("http://localhost:3000/messages");
+    const messages = await res.json();
 
-                // 刪除按鈕（輸入密碼後才能刪）
-                const delBtn = document.createElement("button");
-                delBtn.className = "btn btn-sm btn-danger ms-2";
-                delBtn.textContent = "刪除";
-                delBtn.onclick = () => {
-                    const pwd = prompt("輸入後台密碼刪除留言:");
-                    if (!pwd) return;
-                    fetch(`http://localhost:3000/messages/${msg.id}`, {
-                        method: "DELETE",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ adminPassword: pwd })
-                    })
-                    .then(res => res.json())
-                    .then(result => {
-                        if (result.success) loadMessages();
-                        else alert(result.error);
-                    });
-                };
-                div.appendChild(delBtn);
+    messageList.innerHTML = "";
 
-                messageList.appendChild(div);
+    messages.forEach(msg => {
+        const item = document.createElement("div");
+        item.className = "list-group-item d-flex justify-content-between align-items-center";
+
+        // 留言文字
+        const text = document.createElement("span");
+        text.textContent = msg.content;
+
+        // 刪除按鈕
+        const delBtn = document.createElement("button");
+        delBtn.className = "btn btn-sm btn-danger ms-3";
+        delBtn.textContent = "刪除";
+
+        delBtn.onclick = async () => {
+            const pwd = prompt("輸入後台密碼刪除留言：");
+            if (!pwd) return;
+
+            const res = await fetch(`http://localhost:3000/messages/${msg.id}`, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ adminPassword: pwd })
             });
-        });
+
+            const result = await res.json();
+            if (result.success) loadMessages();
+            else alert(result.error);
+        };
+
+        item.appendChild(text);
+        item.appendChild(delBtn);
+        messageList.appendChild(item);
+    });
 }
 
 loadMessages();
 </script>
+
 
 
 <!-- ░░░░░ Footer ░░░░░ -->

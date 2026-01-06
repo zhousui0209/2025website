@@ -11,6 +11,11 @@ const PORT = 3000;
 // 中間件
 app.use(cors()); // 前端可以 fetch
 app.use(bodyParser.json());
+const path = require("path");
+
+// 讓 server 可以直接服務前端 HTML
+app.use(express.static(path.join(__dirname, "..")));
+
 
 // 建立資料庫
 const db = new sqlite3.Database("./messages.db", (err) => {
