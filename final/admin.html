@@ -1,0 +1,12 @@
+<button onclick="deleteMessage(1)">刪除</button>
+<script>
+function deleteMessage(id) {
+    fetch(`http://localhost:3000/messages/${id}?admin=123456`, { method: 'DELETE' })
+    .then(res => res.json())
+    .then(data => {
+        if(data.success) alert("刪除成功");
+        else alert(data.error);
+        location.reload(); // 重新載入留言表
+    });
+}
+</script>

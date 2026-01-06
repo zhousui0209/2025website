@@ -172,6 +172,87 @@
     </div>
 </section>
 
+<section class="messages-section container py-5" id="messagesSection">
+    <div class="text-center mb-4">
+        <h2 class="section-title">提問箱</h2>
+        <p class="section-subtitle">所有留言都會公開展示</p>
+    </div>
+
+    <div class="mb-4">
+        <form id="messageForm">
+            <div class="mb-3">
+                <textarea class="form-control" id="messageInput" placeholder="輸入你的留言..." rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">送出留言</button>
+        </form>
+    </div>
+
+    <div id="messageList" class="list-group"></div>
+</section>
+
+<script>
+const messageForm = document.getElementById("messageForm");
+const messageInput = document.getElementById("messageInput");
+const messageList = document.getElementById("messageList");
+
+// 送出留言
+messageForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const content = messageInput.value.trim();
+    if (!content) return;
+
+    fetch("http://localhost:3000/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content })
+    })
+    .then(res => res.json())
+    .then(() => {
+        messageInput.value = "";
+        loadMessages();
+    });
+});
+
+// 載入留言
+function loadMessages() {
+    fetch("http://localhost:3000/messages")
+        .then(res => res.json())
+        .then(messages => {
+            messageList.innerHTML = "";
+            messages.forEach(msg => {
+                const div = document.createElement("div");
+                div.className = "list-group-item d-flex justify-content-between align-items-center";
+                div.textContent = msg.content;
+
+                // 刪除按鈕（輸入密碼後才能刪）
+                const delBtn = document.createElement("button");
+                delBtn.className = "btn btn-sm btn-danger ms-2";
+                delBtn.textContent = "刪除";
+                delBtn.onclick = () => {
+                    const pwd = prompt("輸入後台密碼刪除留言:");
+                    if (!pwd) return;
+                    fetch(`http://localhost:3000/messages/${msg.id}`, {
+                        method: "DELETE",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ adminPassword: pwd })
+                    })
+                    .then(res => res.json())
+                    .then(result => {
+                        if (result.success) loadMessages();
+                        else alert(result.error);
+                    });
+                };
+                div.appendChild(delBtn);
+
+                messageList.appendChild(div);
+            });
+        });
+}
+
+loadMessages();
+</script>
+
+
 <!-- ░░░░░ Footer ░░░░░ -->
 <footer class="site-footer">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
