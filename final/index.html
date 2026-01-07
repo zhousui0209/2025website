@@ -225,40 +225,15 @@ async function loadMessages() {
 
     messages.forEach(msg => {
         const item = document.createElement("div");
-        item.className = "list-group-item d-flex justify-content-between align-items-center";
-
-        // 留言文字
-        const text = document.createElement("span");
-        text.textContent = msg.content;
-
-        // 刪除按鈕
-        const delBtn = document.createElement("button");
-        delBtn.className = "btn btn-sm btn-danger ms-3";
-        delBtn.textContent = "刪除";
-
-        delBtn.onclick = async () => {
-            const pwd = prompt("輸入後台密碼刪除留言：");
-            if (!pwd) return;
-
-            const res = await fetch(`http://localhost:3000/messages/${msg.id}`, {
-                method: "DELETE",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ adminPassword: pwd })
-            });
-
-            const result = await res.json();
-            if (result.success) loadMessages();
-            else alert(result.error);
-        };
-
-        item.appendChild(text);
-        item.appendChild(delBtn);
+        item.className = "list-group-item";
+        item.textContent = msg.content;
         messageList.appendChild(item);
     });
 }
 
 loadMessages();
 </script>
+
 
 
 
