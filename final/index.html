@@ -206,7 +206,7 @@ messageForm.addEventListener("submit", async (e) => {
     const content = messageInput.value.trim();
     if (!content) return;
 
-    await fetch("http://localhost:3000/messages", {
+    await fetch("https://two025website-bd5v.onrender.com/messages", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content })
@@ -218,7 +218,7 @@ messageForm.addEventListener("submit", async (e) => {
 
 // 載入留言
 async function loadMessages() {
-    const res = await fetch("http://localhost:3000/messages");
+    const res = await fetch("https://two025website-bd5v.onrender.com/messages");
     const messages = await res.json();
 
     messageList.innerHTML = "";

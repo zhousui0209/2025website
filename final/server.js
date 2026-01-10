@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 const DATA_FILE = path.join( __dirname, "messages.json");
-
+node server.js
 // 初始化資料檔
 if (!fs.existsSync(DATA_FILE)) {
     fs.writeFileSync(DATA_FILE, "[]", "utf8");
