@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-const DATA_FILE = path.join(__dirname, "messages.json");
+const DATA_FILE = path.join( __dirname, "messages.json");
 
 // 初始化資料檔
 if (!fs.existsSync(DATA_FILE)) {
