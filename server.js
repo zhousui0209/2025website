@@ -4,7 +4,7 @@ var server = express();
 var bodyParser = require
 ("body-parser"); server.use
 (express.static
-(_dirname+"/Public")); server.
+(__dirname+"/Public")); server.
 use(bodyParser.urlencoded());
 
 
